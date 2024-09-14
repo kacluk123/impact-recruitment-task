@@ -10,7 +10,7 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
     <div className={styles.list}>
       {categories.map((category) => {
         return (
-          <Link href="test" key={category}>
+          <Link href={`/categories/${category}`} key={category}>
             <div className={styles.list__element}>{category}</div>
           </Link>
         );

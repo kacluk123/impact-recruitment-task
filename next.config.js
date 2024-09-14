@@ -8,4 +8,15 @@ module.exports = {
       },
     ]
   },
+  images: {
+    formats: ["image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fakestoreapi.com",
+        port: "",
+        pathname: "/img/*",
+      },
+    ],
+  }
 }

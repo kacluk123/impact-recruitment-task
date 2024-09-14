@@ -1,16 +1,30 @@
-import { CategoriesService, ServerResponseCategories, ServerResponseProducts } from './categories-service.types'
+import { CategoriesService, ServerResponseCategories, ServerResponseProduct, UIResponseCategories, ApiError, UIResponseProdocuts } from './categories-service.types'
 
 class CategoriesServiceImpl implements CategoriesService {
-  async getAllCategories(): Promise<ServerResponseCategories> {
+  async getAllCategories(): Promise<UIResponseCategories> {
     const response = await fetch(`${process.env.API_URL}/products/categories`);
-    const json: ServerResponseCategories = await response.json();
-    return json
+    if (response.ok) {
+      const json: ServerResponseCategories = await response.json();
+      return {
+        data: json,
+      }
+    } else {
+      return {
+        error: 'Failed to get categories'
+      }
+    }
   }
-  async getProductForCategory(category: string): Promise<ServerResponseProducts> {
+  async getProductForCategory(category: string): Promise<UIResponseProdocuts> {
     const response = await fetch(`${process.env.API_URL}/products/category/${category}`);
-    const json: ServerResponseProducts = await response.json();
-    return json
+    if (response.ok) {
+      const json: ServerResponseProduct[] = await response.json();
+      return { data: json }
+    } else {
+      return {
+        error: `Failed to get products for ${category}`
+      }
+    }
   }
 }
 
-export const categorieService = new CategoriesServiceImpl()
+export const categoriesService = new CategoriesServiceImpl()

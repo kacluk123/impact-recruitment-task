@@ -1,14 +1,21 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import { categorieService } from "@/services/CategoriesService/categories-service.impl";
+// import styles from "./page.module.css";
+import { categoriesService } from "@/services/CategoriesService/categories-service.impl";
+import { GenericError } from "@/components/generic-error/generic-error";
+import { Products } from "./components/products/products";
 
 export default async function Category({
   params,
 }: {
   params: { category: string };
 }) {
-  const categories = await categorieService.getAllCategories();
-  console.log(categories);
+  const products = await categoriesService.getProductForCategory(
+    params.category
+  );
 
-  return <div className={styles.container}>{category}</div>;
+  if ("error" in products) {
+    return <GenericError errorMessage={products.error} />;
+  }
+
+  return <Products products={products.data} />;
 }

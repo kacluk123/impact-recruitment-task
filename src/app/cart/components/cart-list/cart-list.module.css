@@ -1,0 +1,26 @@
+.cart_items {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  min-width: 300px;
+  width: 600px;
+}
+
+.cart_item {
+  border: 2px solid var(--color-powder-blue);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart_item__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product__name {
+  margin-top: 15px;
+  flex-grow: 1;
+  padding-bottom: 15px;
+}

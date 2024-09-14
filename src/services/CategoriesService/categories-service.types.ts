@@ -1,16 +1,27 @@
 export interface CategoriesService {
-  getAllCategories(): Promise<ServerResponseCategories>
-  getProductForCategory(category: string): Promise<ServerResponseCategories>
-
+  getAllCategories(): Promise<UIResponseCategories>
+  getProductForCategory(category: string): Promise<UIResponseProdocuts>
 }
 
 export type ServerResponseCategories = string[]
 
-export interface ServerResponseProducts {
+export type UIResponseCategories = ApiError | {
+  data: ServerResponseCategories
+}
+
+export interface ServerResponseProduct {
   id: 5;
   title: string;
   price: string;
   category: string;
   description: string;
   image: string;
+}
+
+export type UIResponseProdocuts = ApiError | {
+  data: ServerResponseProduct[]
+}
+
+export interface ApiError {
+  error: string;
 }
