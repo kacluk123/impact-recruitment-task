@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import styles from "./layout.module.css";
 import "./globals.css";
+import Image from "next/image";
+import { IconButton } from "@/components/icon-button/icon-button";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,6 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <nav className={styles.nav}>
+          <h2 className={styles.header__title}>Shop</h2>
+          <Link href="/cart" className="">
+            <Image src="/svg/cart.svg" alt="cart-icon" width={30} height={30} />
+          </Link>
+        </nav>
         {children}
       </body>
     </html>

@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.list__element {
+  border: 2px solid var(--color-powder-blue);
+  border-radius: 8px;
+  padding: 25px 50px;
+  text-transform: capitalize;
+}
+
+.list__element:hover {
+  border: 2px solid var(--color-gray);
+}
