@@ -47,4 +47,8 @@ npm run test
    - Save the cart state to local storage.
 
 5. **Better error handling**
+
    - Implement a notification system for better error feedback.
+
+6. **Optimization**
+   - Add memoization for some functions that are calculating the price (if the app will become more complex)
