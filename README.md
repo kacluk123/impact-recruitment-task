@@ -1,6 +1,6 @@
 # How to Run
 
-1. Create a `.env` file and insert the following:
+1. Create a `.env` file in the root folder and insert the following:
 
    ```
    API_URL=https://fakestoreapi.com
