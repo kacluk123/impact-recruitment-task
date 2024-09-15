@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import styles from "./layout.module.css";
 import "./globals.css";
 import Image from "next/image";
-import { IconButton } from "@/components/icon-button/icon-button";
 import Link from "next/link";
 import { CartProvider } from "@/context/cart-context";
 import { CartIcon } from "./cart-icon";
@@ -34,8 +33,26 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <CartProvider>
           <nav className={styles.nav}>
-            <h2 className={styles.header__title}>Shop</h2>
-            <Link href="/cart" className="">
+            <div className={styles.home}>
+              <h2 className={styles.header__title}>Shop</h2>
+              <Link
+                href="/"
+                className={styles.icon}
+                aria-label="Go to home page"
+              >
+                <Image
+                  src="/svg/home.svg"
+                  alt="cart-icon"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+            </div>
+            <Link
+              href="/cart"
+              aria-label="Go to cart page"
+              className={styles.icon}
+            >
               <CartIcon />
             </Link>
           </nav>

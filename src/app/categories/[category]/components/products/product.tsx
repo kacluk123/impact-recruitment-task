@@ -1,7 +1,6 @@
 import { ServerResponseProduct } from "@/services/CategoriesService/categories-service.types";
 import styles from "./products.module.css";
 import Image from "next/image";
-import { Button } from "@/components/button/button";
 import { ProductAddToCart } from "./product-add-to-cart";
 
 interface ProductProps {
@@ -13,7 +12,7 @@ export const Product = ({ product }: ProductProps) => {
     <div className={styles.product}>
       <div className={styles.product__header}>
         <Image
-          alt={product.description}
+          alt={product.title}
           src={product.image}
           width={125}
           height={125}

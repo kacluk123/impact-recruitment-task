@@ -1,13 +1,15 @@
 .list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 15px;
+  padding: 30px;
 }
 
 .list__element {
   border: 2px solid var(--color-powder-blue);
   border-radius: 8px;
   padding: 25px 50px;
+  text-align: center;
   text-transform: capitalize;
 }
 

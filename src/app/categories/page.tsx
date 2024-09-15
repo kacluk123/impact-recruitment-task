@@ -1,10 +1,9 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import { categoriesService } from "@/services/CategoriesService/categories-service.impl";
 import { CategoriesList } from "./components/categories-list/categories-list";
 import { GenericError } from "@/components/generic-error/generic-error";
 
-export default async function Home() {
+export default async function Categories() {
   const categories = await categoriesService.getAllCategories();
 
   if ("error" in categories) {

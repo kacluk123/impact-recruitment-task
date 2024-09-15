@@ -26,7 +26,28 @@
   color: white;
   font-weight: 600;
   align-items: center;
-  background: #C7253E;
+  background: var(--color-red);
   top: -7px;
   right: -15px;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon {
+  padding: 5px;
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  background: var(--color-lavender);
 }

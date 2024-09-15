@@ -1,0 +1,23 @@
+.header {
+  font-size: 26px;
+  text-transform: capitalize;
+  color: var(--color-powder-blue);
+}
+
+.header_container {
+  padding: 30px;
+}
+
+.sub_header {
+  font-size: 18px;
+  color: var(--color-powder-blue);
+}
+
+.link {
+  color: var(--color-gray);
+  margin-left: 30px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { ServerResponseProduct } from "@/services/CategoriesService/categories-service.types";
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 export type CartItem = {
   product: ServerResponseProduct;
@@ -28,6 +28,8 @@ type Action =
 type AppContextType = {
   cartItems: CartItem[];
   dispatch: React.Dispatch<Action>;
+  fullItemsPrice: number;
+  allItemsQuantity: number;
 };
 
 const searchCartItem = (cartItems: CartItem[], searchedId: number) =>
@@ -88,7 +90,11 @@ function cartReducer(state: State, action: Action): State {
     case ActionTypes.DECREASE_ITEM_QUANTITY: {
       const searchedCartItem = searchCartItem(state.cartItems, action.value.id);
 
-      if (searchedCartItem) {
+      if (searchedCartItem?.count === 1) {
+        return {
+          cartItems: removeItemFromCart(state.cartItems, action.value.id),
+        };
+      } else if (searchedCartItem) {
         return {
           cartItems: changeQuantityOfCartItem(
             state.cartItems,
@@ -112,7 +118,20 @@ function CartProvider({ children }: React.PropsWithChildren) {
     cartItems: [],
   });
 
-  const value = { cartItems: state.cartItems, dispatch };
+  const allItemsQuantity = state.cartItems.reduce((cart, currentItem) => {
+    return cart + currentItem.count;
+  }, 0);
+
+  const fullItemsPrice = state.cartItems.reduce((cart, currentItem) => {
+    return cart + currentItem.product.price * currentItem.count;
+  }, 0);
+
+  const value = {
+    cartItems: state.cartItems,
+    dispatch,
+    fullItemsPrice,
+    allItemsQuantity,
+  };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 

@@ -10,9 +10,9 @@ export type UIResponseCategories = ApiError | {
 }
 
 export interface ServerResponseProduct {
-  id: 5;
+  id: number;
   title: string;
-  price: string;
+  price: number;
   category: string;
   description: string;
   image: string;

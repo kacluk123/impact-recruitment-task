@@ -2,14 +2,8 @@
   --color-gray: #7f7caf;
   --color-powder-blue: #9fb4c7;
   --color-lavender: #EEEEFF;
+  --color-red: #C7253E;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: white;
-    --foreground: #ededed;
-  }
-} */
 
 html,
 body {

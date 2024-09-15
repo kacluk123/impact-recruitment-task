@@ -1,4 +1,4 @@
-import { CategoriesService, ServerResponseCategories, ServerResponseProduct, UIResponseCategories, ApiError, UIResponseProdocuts } from './categories-service.types'
+import { CategoriesService, ServerResponseCategories, ServerResponseProduct, UIResponseCategories, UIResponseProdocuts } from './categories-service.types'
 
 class CategoriesServiceImpl implements CategoriesService {
   async getAllCategories(): Promise<UIResponseCategories> {
