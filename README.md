@@ -27,7 +27,7 @@ npm run test
 
 ---
 
-## Improvements and Features That Could Be Added
+## Improvements and features that could be added
 
 1. **More tests**
 
